@@ -1,0 +1,25 @@
+### [Auth Controller] - Register the new user
+POST http://localhost:8085/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Xi Yao",
+  "lastName":  "Kong",
+  "email":  "kxying@gmail.com",
+  "password":  "1234"
+}
+
+> {% client.global.set("auth-token", response.body.token);  %}
+
+### [Auth Controller] - Auth using username & password
+POST http://localhost:8085/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email":  "kxying@gmail.com",
+  "password":  "1234"
+}
+
+### [Demo Controller] - Get Hello
+GET http://localhost:8085/api/v1/demo/hello
+Authorization: Bearer {{auth-token}}
